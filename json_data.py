@@ -26,3 +26,14 @@ class highScoreManager:
 
     def reset_current_score(self):
         self.score = 0
+
+class DeamonStats:
+    def __init__(self, filename):
+        self.filename = filename
+
+    def open_stats(self):
+        try:
+            with open(self.filename, 'r') as g:
+                return int(json.load(g))
+        except (FileNotFoundError, json.JSONDecodeError):
+            return 0

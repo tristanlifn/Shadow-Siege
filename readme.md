@@ -1,21 +1,21 @@
 ## Shadow Siege
-Shadow Siege is a action game that puts you in the shoes of noon guy.
+Shadow Siege is a action game that puts you in the shoes of noob guy.
 The spirrets of the dead join forces with the deamons of hell. you fight for survival.
 
 ## credits
 `spil designer`
-Mathilde
-Freja
-Aksel
+Mathilde,
+Freja,
+Aksel,
 Christian
 
 `lyd`
-August
+August,
 Ruben
 
 `programmør`   
-Lucas
-Tristian
+Lucas,
+Tristan,
 chat gpt
 
 `projektleder`

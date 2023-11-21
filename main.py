@@ -32,7 +32,7 @@ class Player(pygame.sprite.Sprite):
 
         self.rect = self.image.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))
         self.health = 100
-        self.speed = 5
+        self.speed = 10
         self.shadow = pygame.Surface((100, 100))
         self.shadow.fill((150, 150, 150))
         self.last_shot_time = pygame.time.get_ticks()
@@ -164,7 +164,7 @@ class Demon(pygame.sprite.Sprite):
 
         self.health = 60
         self.speed = 4
-        self.damage = 3
+        self.damage = 2
 
         side = random.choice(["top", "bottom", "left", "right"])
         if side == "top":
@@ -363,10 +363,7 @@ def options():
 
         HIGH_SCORE_RESET = Button(image=pygame.image.load("assets/menu/Quit_Rect.png"), pos=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 3), 
             text_input="RESET", font=font, base_color="#d7fcd4", hovering_color="white")
-        DEAMON_SPEED_3 = Button(image=pygame.image.load("assets/menu/Quit_Rect.png"), pos=(SCREEN_WIDTH // 3.5, SCREEN_HEIGHT // 1.6), 
-            text_input="3", font=font, base_color="#d7fcd4", hovering_color="white")
-        
-        for button in [HIGH_SCORE_RESET, DEAMON_SPEED_3]:
+        for button in [HIGH_SCORE_RESET]:
             button.changeColor(pygame.mouse.get_pos())
             button.update(SCREEN)
 
@@ -380,8 +377,6 @@ def options():
                 if HIGH_SCORE_RESET.checkForInput(pygame.mouse.get_pos()):
                     high_score_manager.reset_high_score()
                     high_score_manager.reset_current_score()
-                if DEAMON_SPEED_3.checkForInput(pygame.mouse.get_pos()):
-                    pass
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
