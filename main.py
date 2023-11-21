@@ -2,7 +2,7 @@ import pygame
 import sys
 import math
 import random
-from json_data import Read_JSON
+from json_data import highScoreManager
 from button import Button
 
 pygame.init()
@@ -242,7 +242,7 @@ def spawn_demon():
     demon = Demon()
     demon_group.add(demon)
 
-high_score_manager = Read_JSON("highScore.json")
+high_score_manager = highScoreManager("highScore.json")
 
 def play():
     ghost_group.empty()

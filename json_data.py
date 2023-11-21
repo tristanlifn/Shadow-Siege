@@ -1,6 +1,6 @@
 import json
 
-class Read_JSON:
+class highScoreManager:
     def __init__(self, fileName):
         self.filename = fileName
         self.high_score = self.read_high_score()
