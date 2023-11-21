@@ -2,7 +2,7 @@ import pygame
 import sys
 import math
 import random
-import json
+from json_data import Read_JSON
 from button import Button
 
 pygame.init()
@@ -222,33 +222,6 @@ class Demon(pygame.sprite.Sprite):
         pygame.draw.rect(surface, (255, 0, 0), (self.rect.x, self.rect.y - 10, 100, 10))
         pygame.draw.rect(surface, (0, 255, 0), (self.rect.x, self.rect.y - 10, 100 * (self.health / 60), 10))
 
-class HighScoreManager:
-    def __init__(self):
-        self.filename = 'highScore.json'
-        self.high_score = self.read_high_score()
-        self.score = 0
-
-    def read_high_score(self):
-        try:
-            with open(self.filename, 'r') as f:
-                return int(json.load(f))
-        except (FileNotFoundError, json.JSONDecodeError):
-            return 0
-
-    def update_high_score(self, current_score):
-        if current_score > self.high_score:
-            self.high_score = current_score
-            with open(self.filename, 'w') as f:
-                json.dump(str(self.high_score), f)
-
-    def reset_high_score(self):
-        self.high_score = 0
-        with open(self.filename, 'w') as f:
-            json.dump(str(self.high_score), f)
-
-    def reset_current_score(self):
-        self.score = 0
-
 player = Player()
 player_group = pygame.sprite.GroupSingle(player)
 bullet_group = pygame.sprite.Group()
@@ -269,7 +242,7 @@ def spawn_demon():
     demon = Demon()
     demon_group.add(demon)
 
-high_score_manager = HighScoreManager()
+high_score_manager = Read_JSON("highScore.json")
 
 def play():
     ghost_group.empty()
