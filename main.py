@@ -32,7 +32,7 @@ class Player(pygame.sprite.Sprite):
 
         self.rect = self.image.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))
         self.health = 100
-        self.speed = 10
+        self.speed = 5
         self.shadow = pygame.Surface((100, 100))
         self.shadow.fill((150, 150, 150))
         self.last_shot_time = pygame.time.get_ticks()
@@ -163,7 +163,7 @@ class Demon(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
 
         self.health = 60
-        self.speed = 4
+        self.speed = 3
         self.damage = 2
 
         side = random.choice(["top", "bottom", "left", "right"])
@@ -250,7 +250,6 @@ def play():
     for _ in range(2):
         spawn_ghost()
 
-    player_group.sprite.health = 100
     player_group.sprite.rect.center = (SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
 
     pygame.mixer.stop()
@@ -358,10 +357,10 @@ def options():
 
         RESET_TEXT = font.render("Reset high score", True, "white")
         RESET_TEXT = pygame.transform.scale(RESET_TEXT, (650, 70))
-        reset_text_pos = SCREEN_HEIGHT // 2, SCREEN_HEIGHT // 5.7
+        reset_text_pos = SCREEN_HEIGHT // 2, SCREEN_HEIGHT // 3
         SCREEN.blit(RESET_TEXT, reset_text_pos)
 
-        HIGH_SCORE_RESET = Button(image=pygame.image.load("assets/menu/Quit_Rect.png"), pos=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 3), 
+        HIGH_SCORE_RESET = Button(image=pygame.image.load("assets/menu/Quit_Rect.png"), pos=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2), 
             text_input="RESET", font=font, base_color="#d7fcd4", hovering_color="white")
         for button in [HIGH_SCORE_RESET]:
             button.changeColor(pygame.mouse.get_pos())
